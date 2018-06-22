@@ -940,8 +940,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        RedirectUriSignOut = _ref.RedirectUriSignOut,
 	        IdentityProvider = _ref.IdentityProvider,
 	        UserPoolId = _ref.UserPoolId,
-	        AdvancedSecurityDataCollectionFlag = _ref.AdvancedSecurityDataCollectionFlag,
-	        Storage = _ref.Storage;
+	        AdvancedSecurityDataCollectionFlag = _ref.AdvancedSecurityDataCollectionFlag;
 
 	    if (data == null || !ClientId || !AppWebDomain || !RedirectUriSignIn || !RedirectUriSignOut) {
 	      throw new Error(this.getCognitoConstants().PARAMETERERROR);
@@ -958,7 +957,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.RedirectUriSignOut = RedirectUriSignOut;
 	    this.IdentityProvider = IdentityProvider;
 	    this.responseType = this.getCognitoConstants().TOKEN;
-	    this.storage = Storage || new _StorageHelper2.default().getStorage();
+	    this.storage = new _StorageHelper2.default().getStorage();
 	    this.username = this.getLastUser();
 	    this.userPoolId = UserPoolId;
 	    this.signInUserSession = this.getCachedSession();
@@ -984,6 +983,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var CognitoConstants = {
 	        DOMAIN_SCHEME: 'https',
 	        DOMAIN_PATH_SIGNIN: 'oauth2/authorize',
+	        DOMAIN_PATH_SIGNUP: 'signup',
 	        DOMAIN_PATH_TOKEN: 'oauth2/token',
 	        DOMAIN_PATH_SIGNOUT: 'logout',
 	        DOMAIN_QUERY_PARAM_REDIRECT_URI: 'redirect_uri',
@@ -1164,7 +1164,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function getSession() {
 	      var tokenScopesInputSet = new Set(this.TokenScopesArray);
 	      var cachedScopesSet = new Set(this.signInUserSession.tokenScopes.getScopes());
-	      var URL = this.getFQDNSignIn();
+	      var URL = this.getFQDNURI(this.getCognitoConstants().DOMAIN_PATH_SIGNIN);
 	      if (this.signInUserSession != null && this.signInUserSession.isValid()) {
 	        return this.userhandler.onSuccess(this.signInUserSession);
 	      }
@@ -1187,6 +1187,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	      } else {
 	        this.refreshSession(this.signInUserSession.getRefreshToken().getToken());
 	      }
+	      return undefined;
+	    }
+
+	    /**
+	     * This is used to take a prospective user straight to the signup screen, 
+	     * without first going to the login screen
+	     * @returns {void}
+	     */
+
+	  }, {
+	    key: 'gotoSignup',
+	    value: function gotoSignup() {
+	      var URL = this.getFQDNURI(this.getCognitoConstants().DOMAIN_PATH_SIGNUP);
+	      this.launchUri(URL);
 	      return undefined;
 	    }
 
@@ -1593,7 +1607,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function onSuccessRefreshToken(jsonData) {
 	      var jsonDataObject = JSON.parse(jsonData);
 	      if (Object.prototype.hasOwnProperty.call(jsonDataObject, this.getCognitoConstants().ERROR)) {
-	        var URL = this.getFQDNSignIn();
+	        var URL = this.getFQDNURI(this.getCognitoConstants().DOMAIN_PATH_SIGNIN);
 	        this.launchUri(URL);
 	      } else {
 	        if (Object.prototype.hasOwnProperty.call(jsonDataObject, this.getCognitoConstants().IDTOKEN)) {
@@ -1672,8 +1686,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 
 	  }, {
-	    key: 'getFQDNSignIn',
-	    value: function getFQDNSignIn() {
+	    key: 'getFQDNURI',
+	    value: function getFQDNURI(domainPath) {
 	      if (this.state == null) {
 	        this.state = this.generateRandomString(this.getCognitoConstants().STATELENGTH, this.getCognitoConstants().STATEORIGINSTRING);
 	      }
@@ -1688,7 +1702,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 
 	      // Build the complete web domain to launch the login screen
-	      var uri = this.getCognitoConstants().DOMAIN_SCHEME.concat(this.getCognitoConstants().COLONDOUBLESLASH, this.getAppWebDomain(), this.getCognitoConstants().SLASH, this.getCognitoConstants().DOMAIN_PATH_SIGNIN, this.getCognitoConstants().QUESTIONMARK, this.getCognitoConstants().DOMAIN_QUERY_PARAM_REDIRECT_URI, this.getCognitoConstants().EQUALSIGN, encodeURIComponent(this.RedirectUriSignIn), this.getCognitoConstants().AMPERSAND, this.getCognitoConstants().DOMAIN_QUERY_PARAM_RESPONSE_TYPE, this.getCognitoConstants().EQUALSIGN, this.responseType, this.getCognitoConstants().AMPERSAND, this.getCognitoConstants().CLIENT_ID, this.getCognitoConstants().EQUALSIGN, this.getClientId(), this.getCognitoConstants().AMPERSAND, this.getCognitoConstants().STATE, this.getCognitoConstants().EQUALSIGN, this.state, this.getCognitoConstants().AMPERSAND, this.getCognitoConstants().SCOPE, this.getCognitoConstants().EQUALSIGN, tokenScopesString, identityProviderParam, userContextDataParam);
+	      var uri = this.getCognitoConstants().DOMAIN_SCHEME.concat(this.getCognitoConstants().COLONDOUBLESLASH, this.getAppWebDomain(), this.getCognitoConstants().SLASH, domainPath, //this.getCognitoConstants().DOMAIN_PATH_SIGNIN,
+	      this.getCognitoConstants().QUESTIONMARK, this.getCognitoConstants().DOMAIN_QUERY_PARAM_REDIRECT_URI, this.getCognitoConstants().EQUALSIGN, encodeURIComponent(this.RedirectUriSignIn), this.getCognitoConstants().AMPERSAND, this.getCognitoConstants().DOMAIN_QUERY_PARAM_RESPONSE_TYPE, this.getCognitoConstants().EQUALSIGN, this.responseType, this.getCognitoConstants().AMPERSAND, this.getCognitoConstants().CLIENT_ID, this.getCognitoConstants().EQUALSIGN, this.getClientId(), this.getCognitoConstants().AMPERSAND, this.getCognitoConstants().STATE, this.getCognitoConstants().EQUALSIGN, this.state, this.getCognitoConstants().AMPERSAND, this.getCognitoConstants().SCOPE, this.getCognitoConstants().EQUALSIGN, tokenScopesString, identityProviderParam, userContextDataParam);
 
 	      return uri;
 	    }
