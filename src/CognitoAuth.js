@@ -86,6 +86,7 @@
         DOMAIN_PATH_SIGNIN: 'oauth2/authorize',
         DOMAIN_PATH_SIGNUP: 'signup',
         DOMAIN_PATH_TOKEN: 'oauth2/token',
+        DOMAIN_PATH_FORGOTP: 'forgotPassword',
         DOMAIN_PATH_SIGNOUT: 'logout',
         DOMAIN_QUERY_PARAM_REDIRECT_URI: 'redirect_uri',
         DOMAIN_QUERY_PARAM_SIGNOUT_URI: 'logout_uri',
@@ -265,6 +266,17 @@
      */
     gotoSignup() {
       const URL = this.getFQDNURI(this.getCognitoConstants().DOMAIN_PATH_SIGNUP);
+      this.launchUri(URL);
+      return undefined;
+    }
+
+    /**
+     * This is used to take a prospective user straight to the forgot password screen, 
+     * without first going to the login screen 
+     * @returns {void}
+     */
+    gotoForgotPassword() {
+      const URL = this.getFQDNURI(this.getCognitoConstants().DOMAIN_PATH_FORGOTP);
       this.launchUri(URL);
       return undefined;
     }
