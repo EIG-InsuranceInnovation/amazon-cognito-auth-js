@@ -1210,14 +1210,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * without first going to the login screen 
 	     * @returns {void}
 	     */
-
-	  }, {
-	    key: 'gotoForgotPassword',
-	    value: function gotoForgotPassword() {
-	      var URL = this.getFQDNURI(this.getCognitoConstants().DOMAIN_PATH_FORGOTP);
-	      this.launchUri(URL);
-	      return undefined;
-	    }
+	    // gotoForgotPassword() {
+	    //   const URL = this.getFQDNURI(this.getCognitoConstants().DOMAIN_PATH_FORGOTP);
+	    //   this.launchUri(URL);
+	    //   return undefined;
+	    // }
 
 	    /**
 	     * @param {string} httpRequestResponse the http request response

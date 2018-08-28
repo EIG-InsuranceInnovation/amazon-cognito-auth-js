@@ -275,11 +275,11 @@
      * without first going to the login screen 
      * @returns {void}
      */
-    gotoForgotPassword() {
-      const URL = this.getFQDNURI(this.getCognitoConstants().DOMAIN_PATH_FORGOTP);
-      this.launchUri(URL);
-      return undefined;
-    }
+      // gotoForgotPassword() {
+      //   const URL = this.getFQDNURI(this.getCognitoConstants().DOMAIN_PATH_FORGOTP);
+      //   this.launchUri(URL);
+      //   return undefined;
+      // }
 
     /**
      * @param {string} httpRequestResponse the http request response
