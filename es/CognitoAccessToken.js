@@ -1,3 +1,13 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 /*!
  * Amazon Cognito Auth SDK for JavaScript
  * Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -16,12 +26,14 @@
  */
 
 /** @class */
-export default class CognitoAccessToken {
+var CognitoAccessToken = function () {
   /**
    * Constructs a new CognitoAccessToken object
    * @param {string=} AccessToken The JWT access token.
    */
-  constructor(AccessToken) {
+  function CognitoAccessToken(AccessToken) {
+    _classCallCheck(this, CognitoAccessToken);
+
     // Assign object
     this.jwtToken = AccessToken || '';
     this.payload = this.decodePayload();
@@ -30,50 +42,71 @@ export default class CognitoAccessToken {
   /**
    * @returns {string} the record's token.
    */
-  getJwtToken() {
-    return this.jwtToken;
-  }
 
-  /**
-   * Sets new value for access token.
-   * @param {string=} accessToken The JWT access token.
-   * @returns {void}
-   */
-  setJwtToken(accessToken) {
-    this.jwtToken = accessToken;
-  }
 
-  /**
-   * @returns {int} the token's expiration (exp member).
-   */
-  getExpiration() {
-    if (this.jwtToken === null) {
-      return undefined;
+  _createClass(CognitoAccessToken, [{
+    key: 'getJwtToken',
+    value: function getJwtToken() {
+      return this.jwtToken;
     }
-    const jwtPayload = this.jwtToken.split('.')[1];
-    return JSON.parse(atob(jwtPayload)).exp;
-  }
 
-  /**
-   * @returns {string} the username from payload.
-   */
-  getUsername() {
-    if (this.jwtToken === null) {
-      return undefined;
-    }
-    const jwtPayload = this.jwtToken.split('.')[1];
-    return JSON.parse(atob(jwtPayload)).username;
-  }
+    /**
+     * Sets new value for access token.
+     * @param {string=} accessToken The JWT access token.
+     * @returns {void}
+     */
 
-  /**
-   * @returns {object} the token's payload.
-   */
-  decodePayload() {
-    const jwtPayload = this.jwtToken.split('.')[1];
-    try {
-      return JSON.parse(atob(jwtPayload));
-    } catch (err) {
-      return {};
+  }, {
+    key: 'setJwtToken',
+    value: function setJwtToken(accessToken) {
+      this.jwtToken = accessToken;
     }
-  }
-}
+
+    /**
+     * @returns {int} the token's expiration (exp member).
+     */
+
+  }, {
+    key: 'getExpiration',
+    value: function getExpiration() {
+      if (this.jwtToken === null) {
+        return undefined;
+      }
+      var jwtPayload = this.jwtToken.split('.')[1];
+      return JSON.parse(atob(jwtPayload)).exp;
+    }
+
+    /**
+     * @returns {string} the username from payload.
+     */
+
+  }, {
+    key: 'getUsername',
+    value: function getUsername() {
+      if (this.jwtToken === null) {
+        return undefined;
+      }
+      var jwtPayload = this.jwtToken.split('.')[1];
+      return JSON.parse(atob(jwtPayload)).username;
+    }
+
+    /**
+     * @returns {object} the token's payload.
+     */
+
+  }, {
+    key: 'decodePayload',
+    value: function decodePayload() {
+      var jwtPayload = this.jwtToken.split('.')[1];
+      try {
+        return JSON.parse(atob(jwtPayload));
+      } catch (err) {
+        return {};
+      }
+    }
+  }]);
+
+  return CognitoAccessToken;
+}();
+
+exports.default = CognitoAccessToken;

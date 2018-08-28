@@ -1,3 +1,13 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 /*!
  * Amazon Cognito Auth SDK for JavaScript
  * Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -16,12 +26,14 @@
  */
 
 /** @class */
-export default class CognitoTokenScopes {
+var CognitoTokenScopes = function () {
   /**
    * Constructs a new CognitoTokenScopes object
    * @param {array=} TokenScopesArray The token scopes
    */
-  constructor(TokenScopesArray) {
+  function CognitoTokenScopes(TokenScopesArray) {
+    _classCallCheck(this, CognitoTokenScopes);
+
     // Assign object
     this.tokenScopes = TokenScopesArray || [];
   }
@@ -29,16 +41,28 @@ export default class CognitoTokenScopes {
   /**
    * @returns {Array} the token scopes.
    */
-  getScopes() {
-    return this.tokenScopes;
-  }
 
-  /**
-   * Sets new value for token scopes.
-   * @param {array=} tokenScopes The token scopes
-   * @returns {void}
-   */
-  setTokenScopes(tokenScopes) {
-    this.tokenScopes = tokenScopes;
-  }
-}
+
+  _createClass(CognitoTokenScopes, [{
+    key: "getScopes",
+    value: function getScopes() {
+      return this.tokenScopes;
+    }
+
+    /**
+     * Sets new value for token scopes.
+     * @param {array=} tokenScopes The token scopes
+     * @returns {void}
+     */
+
+  }, {
+    key: "setTokenScopes",
+    value: function setTokenScopes(tokenScopes) {
+      this.tokenScopes = tokenScopes;
+    }
+  }]);
+
+  return CognitoTokenScopes;
+}();
+
+exports.default = CognitoTokenScopes;

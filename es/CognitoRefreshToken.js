@@ -1,3 +1,13 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 /*!
  * Amazon Cognito Auth SDK for JavaScript
  * Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -16,12 +26,14 @@
  */
 
 /** @class */
-export default class CognitoRefreshToken {
+var CognitoRefreshToken = function () {
   /**
    * Constructs a new CognitoRefreshToken object
    * @param {string=} RefreshToken The JWT refresh token.
    */
-  constructor(RefreshToken) {
+  function CognitoRefreshToken(RefreshToken) {
+    _classCallCheck(this, CognitoRefreshToken);
+
     // Assign object
     this.refreshToken = RefreshToken || '';
   }
@@ -29,16 +41,28 @@ export default class CognitoRefreshToken {
   /**
    * @returns {string} the record's token.
    */
-  getToken() {
-    return this.refreshToken;
-  }
 
-  /**
-   * Sets new value for refresh token.
-   * @param {string=} refreshToken The JWT refresh token.
-   * @returns {void}
-   */
-  setToken(refreshToken) {
-    this.refreshToken = refreshToken;
-  }
-}
+
+  _createClass(CognitoRefreshToken, [{
+    key: 'getToken',
+    value: function getToken() {
+      return this.refreshToken;
+    }
+
+    /**
+     * Sets new value for refresh token.
+     * @param {string=} refreshToken The JWT refresh token.
+     * @returns {void}
+     */
+
+  }, {
+    key: 'setToken',
+    value: function setToken(refreshToken) {
+      this.refreshToken = refreshToken;
+    }
+  }]);
+
+  return CognitoRefreshToken;
+}();
+
+exports.default = CognitoRefreshToken;
