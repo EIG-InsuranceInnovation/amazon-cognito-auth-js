@@ -2,27 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68d0ca5c-73c6-4d88-af88-e01214cf92b9" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.babelrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/CognitoAccessToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/CognitoAccessToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/CognitoAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/CognitoAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/CognitoAuthSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/CognitoAuthSession.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/CognitoIdToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/CognitoIdToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/CognitoRefreshToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/CognitoRefreshToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/CognitoTokenScopes.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/CognitoTokenScopes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/CookieStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/CookieStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/DateHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/DateHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/StorageHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/StorageHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/es/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/es/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CognitoAccessToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CognitoAccessToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CognitoAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CognitoAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CognitoAuthSession.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CognitoAuthSession.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CognitoIdToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CognitoIdToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CognitoRefreshToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CognitoRefreshToken.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CognitoTokenScopes.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CognitoTokenScopes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/CookieStorage.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/CookieStorage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/DateHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/DateHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/StorageHelper.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/StorageHelper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,11 +28,20 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name=".babelrc" pinned="false" current-in-tab="true">
+          <file leaf-file-name=".babelrc" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/.babelrc">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="34">
-                  <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+                  <caret line="2" selection-start-line="2" selection-end-line="2" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="17">
+                  <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
@@ -119,11 +109,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/dist/amazon-cognito-auth.js" />
         <option value="$PROJECT_DIR$/src/CognitoAuth.js" />
         <option value="$PROJECT_DIR$/src/CognitoAccessToken.js" />
         <option value="$PROJECT_DIR$/.babelrc" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -218,7 +208,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6430000" />
+    <option name="totallyTimeSpent" value="6849000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1057" extended-state="6" />
@@ -409,13 +399,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -527,13 +510,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.babelrc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/es/CognitoAccessToken.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -545,6 +521,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.babelrc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
         </state>
       </provider>
     </entry>
