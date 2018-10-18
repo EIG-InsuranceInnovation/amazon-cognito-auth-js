@@ -43,10 +43,10 @@ pipeline {
           script {
             // get package artifact
             PKGNAME = sh(returnStdout: true, script: 'jq -r .name package.json').trim()
-            ARTIFACT = sh(returnStdout: true, script: 'ls -la ${PKGNAME}-*.tgz').trim()
+            ARTIFACT = sh(returnStdout: true, script: 'ls -la $PKGNAME-*.tgz').trim()
 
             // push to s3 bucket
-            sh('aws s3 sync "${ARTIFACT}" "${S3PATH}/npm/${PKGNAME}/${ARTIFACT}/"')
+            sh('aws s3 sync "$ARTIFACT" "$S3PATH/npm/$PKGNAME/$ARTIFACT/"')
           }
         }
       }
