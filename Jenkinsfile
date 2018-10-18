@@ -31,10 +31,12 @@ pipeline {
     stage('Build') {
       steps {
         container('nodejs') {
-          PKGNAME = sh(returnStdout: true, script: 'jq -r .name package.json').trim()
+          script {
+            PKGNAME = sh(returnStdout: true, script: 'jq -r .name package.json').trim()
 
-          // package the app
-          sh("npm pack ${PKGNAME}")
+            // package the app
+            sh("npm pack ${PKGNAME}")
+          }
         }
       }
 
