@@ -52,7 +52,7 @@ pipeline {
         container('docker') {
           script {
             // get package artifact
-            ARTIFACT = sh(returnStdout: true, script: 'ls -la $PKGNAME-*.tgz').trim()
+            ARTIFACT = sh(returnStdout: true, script: 'ls -la ${PKGNAME}-*.tgz').trim()
 
             // push to s3 bucket
             sh('aws s3 sync "$ARTIFACT" "$S3PATH/npm/$PKGNAME/$ARTIFACT/"')
