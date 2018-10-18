@@ -40,14 +40,14 @@ pipeline {
     stage('Publish') {
       steps {        
         container('docker') {
-
-          // get package artifact
           script {
+            // get package artifact
             PKGNAME = sh(returnStdout: true, script: 'jq -r .name package.json').trim()
             ARTIFACT = sh(returnStdout: true, script: 'ls -la ${PKGNAME}-*.tgz').trim()
-          }
 
-          sh("aws s3 sync "$ARTIFACT" "$S3PATH/npm/$PKGNAME/$ARTIFACT/"")
+            // push to s3 bucket
+            sh("aws s3 sync "$ARTIFACT" "$S3PATH/npm/$PKGNAME/$ARTIFACT/"")
+          }
         }
       }
     }
