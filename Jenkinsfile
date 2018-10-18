@@ -46,8 +46,10 @@ pipeline {
 
     stage('Publish') {
       steps {
+        sh("git status")
+        
         container('docker') {
-          sh("ls -la ${PKGNAME}-${PKGVERSION}.tgz")
+          sh("ls -la ${PKGNAME}-*.tgz")
 
           // sh("aws s3 sync --region "$S3REGION" \
           //       --acl public-read \
