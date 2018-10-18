@@ -31,13 +31,6 @@ pipeline {
     stage('Build') {
       steps {
         container('nodejs') {
-
-          // get package name and version
-          script {
-            PKGNAME = sh(returnStdout: true, script: 'jq -r .name package.json').trim()
-            PKGVERSION = sh(returnStdout: true, script: 'jq -r .version package.json').trim()
-          }
-
           // package the app
           sh("npm pack ${PKGNAME}")
         }
@@ -45,17 +38,16 @@ pipeline {
     }
 
     stage('Publish') {
-      steps {
-        sh("git status")
-        
+      steps {        
         container('docker') {
-          sh("ls -la ${PKGNAME}-*.tgz")
 
-          // sh("aws s3 sync --region "$S3REGION" \
-          //       --acl public-read \
-          //       --cache-control "public, max-age=315360000, immutable" \
-          //       package/ \
-          //       "$S3PATH/$PKGNAME/$PKGVERSION/"")
+          // get package artifact
+          script {
+            PKGNAME = sh(returnStdout: true, script: 'jq -r .name package.json').trim()
+            ARTIFACT = sh(returnStdout: true, script: 'ls -la ${PKGNAME}-*.tgz').trim()
+          }
+
+          sh("aws s3 sync "$ARTIFACT" "$S3PATH/npm/$PKGNAME/$ARTIFACT/"")
         }
       }
     }
