@@ -46,7 +46,7 @@ pipeline {
             ARTIFACT = sh(returnStdout: true, script: 'ls -la $PKGNAME-*.tgz').trim()
 
             // push to s3 bucket
-            sh("echo $ARTIFACT $S3PATH $PKGNAME")
+            // sh("echo $ARTIFACT $S3PATH $PKGNAME")
             // sh('aws s3 sync "$ARTIFACT" "$S3PATH/npm/$PKGNAME/$ARTIFACT/"')
           }
         }
